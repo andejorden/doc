@@ -2,6 +2,71 @@ var list = [];
 var dossierPage = "dossier.html";
 
 /**
+ * Compare Arrays
+ */
+
+function compare(){
+    // dsag
+ }
+
+/**
+ * Create jSON Data from Contract Search Results...
+ */
+
+ async function pushTheContractSearchResults(contractMatches){
+    response = await fetch(`https://listadatabase.firebaseio.com/searchResults/contracts/.json`,{method:"put", body:JSON.stringify(contractMatches)});
+ }
+
+
+
+/**
+ * Create jSON Data from Dossier Search Results...
+ */
+
+ async function pushTheDossierSearchResults(dossierMatches){
+    response = await fetch(`https://listadatabase.firebaseio.com/searchResults/dossiers/.json`,{method:"put", body:JSON.stringify(dossierMatches)});
+ }
+
+ /**
+  * Draw Contract Page...
+  */
+
+ function drawContractPage(){
+    var form = document.querySelector("form#editForm div.row");
+    var i = window.location.search.substring(4);
+    var str = `
+       <div class="form-group col-sm-12 col-md-4 col-lg-6">
+           <label class="text-success d-inline">Contract Number: <input type="text" name="Number" value="${list.contracts[i].Number}" class="form-control shadow-sm" readonly></label>
+       </div>
+       <div class="form-group col-sm-12 col-md-4 col-lg-6">
+           <label class="text-success d-inline">Contract Date: <input type="text" name="Number" value="${list.contracts[i].Date}" class="form-control shadow-sm" readonly></label>
+       </div>
+       <div class="form-group col-sm-12 col-md-4 col-lg-6">
+           <label class="text-success d-inline">Contract Requester: <input type="text" name="Number" value="${list.contracts[i].Requester}" class="form-control shadow-sm" readonly></label>
+       </div>
+       <div class="form-group col-sm-12 col-md-4 col-lg-6">
+           <label class="text-success d-inline">Contract Broker: <input type="text" name="Number" value="${list.contracts[i].Broker}" class="form-control shadow-sm" readonly></label>
+       </div>
+       <div class="form-group col-sm-12 col-md-4 col-lg-6">
+           <label class="text-success d-inline">Contract Customer: <input type="text" name="Number" value="${list.contracts[i].Client}" class="form-control shadow-sm" readonly></label>
+       </div>
+       <div class="form-group col-sm-12 col-md-4 col-lg-6">
+           <label class="text-success d-inline">Contract Value: <input type="text" name="Number" value="${list.contracts[i].Value}" class="form-control shadow-sm" readonly></label>
+       </div>
+       <div class="form-group col-sm-12 col-md-4 col-lg-6">
+           <label class="text-success d-inline">Contract Location: <input type="text" name="Number" value="${list.contracts[i].Location}" class="form-control shadow-sm" readonly></label>
+       </div>
+       <div class="form-group col-sm-12 col-md-4 col-lg-6">
+           <label class="text-success d-inline">Contract Attribute 01: <input type="text" name="Number" value="${list.contracts[i].Attribute01}" class="form-control shadow-sm" readonly></label>
+       </div>
+       <div class="form-group col-sm-12 col-md-4 col-lg-6">
+           <label class="text-success d-inline">Contract Attribute 02: <input type="text" name="Number" value="${list.contracts[i].Attribute02}" class="form-control shadow-sm" readonly></label>
+       </div>
+     `;
+    form.innerHTML = str;
+}
+
+/**
  * Draw Dossier Page...
  */
 
@@ -9,82 +74,103 @@ var dossierPage = "dossier.html";
      var form = document.querySelector("form#editForm div.row");
      var i = window.location.search.substring(4);
      var str = `
-        <div class="form-group col-md-2 col-lg-3">
-            <label><strong>${list.dossiers[i].Number}</strong></label> <input type="text" name="Name" value="Dossier Name" class="form-control form-control-sm shadow-sm" readonly>
+        <div class="form-group col-sm-12 col-md-4 col-lg-6">
+            <label class="text-success d-inline">Dossier Number: <input type="text" name="Number" value="${list.dossiers[i].Number}" class="form-control shadow-sm" readonly></label>
         </div>
-         `;
+        <div class="form-group col-sm-12 col-md-4 col-lg-6">
+            <label class="text-success d-inline">Dossier Date: <input type="text" name="Number" value="${list.dossiers[i].Date}" class="form-control shadow-sm" readonly></label>
+        </div>
+        <div class="form-group col-sm-12 col-md-4 col-lg-6">
+            <label class="text-success d-inline">Dossier Requester: <input type="text" name="Number" value="${list.dossiers[i].Requester}" class="form-control shadow-sm" readonly></label>
+        </div>
+        <div class="form-group col-sm-12 col-md-4 col-lg-6">
+            <label class="text-success d-inline">Dossier Broker: <input type="text" name="Number" value="${list.dossiers[i].Broker}" class="form-control shadow-sm" readonly></label>
+        </div>
+        <div class="form-group col-sm-12 col-md-4 col-lg-6">
+            <label class="text-success d-inline">Dossier Customer: <input type="text" name="Number" value="${list.dossiers[i].Client}" class="form-control shadow-sm" readonly></label>
+        </div>
+        <div class="form-group col-sm-12 col-md-4 col-lg-6">
+            <label class="text-success d-inline">Dossier Value: <input type="text" name="Number" value="${list.dossiers[i].Value}" class="form-control shadow-sm" readonly></label>
+        </div>
+        <div class="form-group col-sm-12 col-md-4 col-lg-6">
+            <label class="text-success d-inline">Dossier Location: <input type="text" name="Number" value="${list.dossiers[i].Location}" class="form-control shadow-sm" readonly></label>
+        </div>
+        <div class="form-group col-sm-12 col-md-4 col-lg-6">
+            <label class="text-success d-inline">Dossier Attribute 01: <input type="text" name="Number" value="${list.dossiers[i].Attribute01}" class="form-control shadow-sm" readonly></label>
+        </div>
+        <div class="form-group col-sm-12 col-md-4 col-lg-6">
+            <label class="text-success d-inline">Dossier Attribute 02: <input type="text" name="Number" value="${list.dossiers[i].Attribute02}" class="form-control shadow-sm" readonly></label>
+        </div>
+      `;
      form.innerHTML = str;
  }
 
 /**
- * What to do if you submit the form...
+ * What to do if you Submit The Form...
  */
 
  function postTheSearchResults(form, event){
      var searchIndex = document.querySelectorAll("form input[type='search']");
      event.preventDefault();
      searchIndex.forEach(element => {
-         if(element.name === "Dossier" && element.value !== ""){
+         if(element.name === "Dossier"){
+            // what to do if you search for a dossier
+            var options = "";
             for(var i in list.dossiers){
-                // what to do if you search for a dossier
-                var matches = list.dossiers.filter(dossier => {
-                    const regex = new RegExp(`^${element.value}`, "gi");
-                    return dossier.Number.match(regex);
-                });
+                console.log(list.dossiers[i].Number.indexOf(element.value));
+                if(list.dossiers[i].Number.indexOf(element.value) !== -1){
+                    options += `
+                        <tr onclick="javascript:window.location = 'dossier.html?id=${i}'">
+                            <th scope="row">${list.dossiers[i].Number}</th>
+                            <td>${list.dossiers[i].Date}</td>
+                            <td>${list.dossiers[i].Requester}</td>
+                            <td>${list.dossiers[i].Broker}</td>
+                            <td>${list.dossiers[i].Client}</td>
+                            <td>${list.dossiers[i].Value} $</td>
+                            <td>${list.dossiers[i].Location}</td>
+                            <td>${list.dossiers[i].Attribute01}</td>
+                            <td>${list.dossiers[i].Attribute02}</td>
+                        </tr>
+                    `;
+                    document.querySelector("section#dossier header").innerHTML = `<h3 class="text-success">Dossiers Found!</h3>`;
+                    document.querySelector("section#dossier").classList.remove("d-none");
+                    document.querySelector("section#dossier table").classList.remove("d-none");
+                    document.querySelector("section#dossier table tbody").innerHTML = options;
+                }
             }
-            if(matches.length === 0){
+            if(options === ""){
                 document.querySelector("section#dossier header").innerHTML = `<h3 class="text-secondary">No Dossier found for <em>"${element.value}"</em> !</h3>`;
                 document.querySelector("section#dossier").classList.remove("d-none");
                 document.querySelector("section#dossier table").classList.add("d-none");
-            }else{
-                const options = matches.map(match => `
-                    <tr onclick="javascript:window.location = 'dossier.html?id=${match.Number}'">
-                        <th scope="row">${match.Number}</th>
-                        <td>${match.Date}</td>
-                        <td>${match.Requester}</td>
-                        <td>${match.Broker}</td>
-                        <td>${match.Client}</td>
-                        <td>${match.Value} $</td>
-                        <td>${match.Location}</td>
-                        <td>${match.Attribute01}</td>
-                        <td>${match.Attribute02}</td>
-                    </tr>
-                `).join("");
-                document.querySelector("section#dossier header").innerHTML = `<h3 class="text-success">Dossiers Found!</h3>`;
-                document.querySelector("section#dossier").classList.remove("d-none");
-                document.querySelector("section#dossier table").classList.remove("d-none");
-                document.querySelector("section#dossier table tbody").innerHTML = options;
             }
-         }else if(element.name === "Contract" && element.value !== ""){
+         }else if(element.name === "Contract"){
+            // what to do if you search for a contract
+            var options = "";
             for(var i in list.contracts){
-                // what to do if you search for a contract
-                var matches = list.contracts.filter(contract => {
-                    const regex = new RegExp(`^${element.value}`, "gi");
-                    return contract.Number.match(regex);
-                });
+                if(list.contracts[i].Number.indexOf(element.value) !== -1){
+                    options += `
+                        <tr onclick="javascript:window.location = 'contract.html?id=${i}'">
+                            <th scope="row">${list.contracts[i].Number}</th>
+                            <td>${list.contracts[i].Date}</td>
+                            <td>${list.contracts[i].Requester}</td>
+                            <td>${list.contracts[i].Broker}</td>
+                            <td>${list.contracts[i].Client}</td>
+                            <td>${list.contracts[i].Value} $</td>
+                            <td>${list.contracts[i].Location}</td>
+                            <td>${list.contracts[i].Attribute01}</td>
+                            <td>${list.contracts[i].Attribute02}</td>
+                        </tr>
+                    `;
+                    document.querySelector("section#contract header").innerHTML = `<h3 class="text-success">Contracts Found!</h3>`;
+                    document.querySelector("section#contract").classList.remove("d-none");
+                    document.querySelector("section#contract table").classList.remove("d-none");
+                    document.querySelector("section#contract table tbody").innerHTML = options;
+                }
             }
-            if(matches.length === 0){
+            if(options === ""){
                 document.querySelector("section#contract header").innerHTML = `<h3 class="text-secondary">No Contract found for <em>"${element.value}"</em> !</h3>`;
                 document.querySelector("section#contract").classList.remove("d-none");
                 document.querySelector("section#contract table").classList.add("d-none");
-            }else{
-                const options = matches.map(match => `
-                    <tr onclick="javascript:window.location = 'contract.html?id=${match.Number}'">
-                        <th scope="row">${match.Number}</th>
-                        <td>${match.Date}</td>
-                        <td>${match.Requester}</td>
-                        <td>${match.Broker}</td>
-                        <td>${match.Client}</td>
-                        <td>${match.Value} $</td>
-                        <td>${match.Location}</td>
-                        <td>${match.Attribute01}</td>
-                        <td>${match.Attribute02}</td>
-                    </tr>
-                `).join("");
-                document.querySelector("section#contract header").innerHTML = `<h3 class="text-success">Contracts Found!</h3>`;
-                document.querySelector("section#contract").classList.remove("d-none");
-                document.querySelector("section#contract table").classList.remove("d-none");
-                document.querySelector("section#contract table tbody").innerHTML = options;
             }
          }
      });
@@ -96,9 +182,13 @@ var dossierPage = "dossier.html";
  */
 
 function hideMatchList(){
-    window.addEventListener("click", function(){
-        document.querySelector("#matchList").innerHTML = "";
-    });
+    if(window.location.href.indexOf("index.html")){
+        window.addEventListener("click", function(){
+            document.querySelector("#matchList").innerHTML = "";
+        });
+    }else{
+        return;
+    }
 }
 
 /**
@@ -172,12 +262,28 @@ function loopTheSearchInput(){
     });
 }
 
+/**
+ * Draw the Pages...
+ */
+
+ function draw(){
+     if(window.location.href.indexOf("index.html") > -1){
+         loopTheSearchInput();
+         hideMatchList();
+         compare();
+     }else if(window.location.href.indexOf("dossier.html") > -1){
+         drawDossierPage();
+     }else if(window.location.href.indexOf("contract.html") > -1){
+        drawContractPage();
+     }
+ }
+
+/**
+ * Fetch the Data...
+ */
+
 async function ajaxToJsonData(){
-    var response = await fetch("./data/data.json");
+    var response = await fetch("https://listadatabase.firebaseio.com/.json");
     window.list = await response.json();
-    loopTheSearchInput();
-    hideMatchList();
-    if(window.location.href.indexOf(dossierPage) > -1){
-        drawDossierPage();
-    }
+    draw();
 }
