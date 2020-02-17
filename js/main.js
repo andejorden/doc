@@ -33,6 +33,7 @@ function compare(){
 
  function drawContractPage(){
     var form = document.querySelector("form#editForm div.row");
+    var options = "";
     var i = window.location.search.substring(4);
     var str = `
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
@@ -63,6 +64,33 @@ function compare(){
            <label class="text-success d-inline">Contract Attribute 02: <input type="text" name="Number" value="${list.contracts[i].Attribute02}" class="form-control shadow-sm" readonly></label>
        </div>
      `;
+
+    for(var i in list.searchResults.contracts){
+        if(list.searchResults.contracts[i] !== -1){
+            options += `
+                <tr>
+                    <th scope="row">${list.searchResults.contracts[i].Number}</th>
+                    <td>${list.searchResults.contracts[i].Date}</td>
+                    <td>${list.searchResults.contracts[i].Requester}</td>
+                    <td>${list.searchResults.contracts[i].Broker}</td>
+                    <td>${list.searchResults.contracts[i].Client}</td>
+                    <td>${list.searchResults.contracts[i].Value} $</td>
+                    <td>${list.searchResults.contracts[i].Location}</td>
+                    <td>${list.searchResults.contracts[i].Attribute01}</td>
+                    <td>${list.searchResults.contracts[i].Attribute02}</td>
+                </tr>
+            `;
+            document.querySelector("section#dossier header").innerHTML = `<h3 class="text-success">Contracts Found!</h3>`;
+            document.querySelector("section#dossier").classList.remove("d-none");
+            document.querySelector("section#dossier table").classList.remove("d-none");
+            document.querySelector("section#dossier table tbody").innerHTML = options;
+        }
+    }
+    if(options === ""){
+        document.querySelector("section#dossier header").innerHTML = `<h3 class="text-secondary">No Contract found for <em>"${element.value}"</em> !</h3>`;
+        document.querySelector("section#dossier").classList.remove("d-none");
+        document.querySelector("section#dossier table").classList.add("d-none");
+    }
     form.innerHTML = str;
 }
 
@@ -72,6 +100,7 @@ function compare(){
 
  function drawDossierPage(){
      var form = document.querySelector("form#editForm div.row");
+     var options = "";
      var i = window.location.search.substring(4);
      var str = `
         <div class="form-group col-sm-12 col-md-4 col-lg-6">
@@ -102,7 +131,34 @@ function compare(){
             <label class="text-success d-inline">Dossier Attribute 02: <input type="text" name="Number" value="${list.dossiers[i].Attribute02}" class="form-control shadow-sm" readonly></label>
         </div>
       `;
-     form.innerHTML = str;
+
+      for(var i in list.searchResults.dossiers){
+          if(list.searchResults.dossiers[i] !== -1){
+              options += `
+                  <tr>
+                      <th scope="row">${list.searchResults.dossiers[i].Number}</th>
+                      <td>${list.searchResults.dossiers[i].Date}</td>
+                      <td>${list.searchResults.dossiers[i].Requester}</td>
+                      <td>${list.searchResults.dossiers[i].Broker}</td>
+                      <td>${list.searchResults.dossiers[i].Client}</td>
+                      <td>${list.searchResults.dossiers[i].Value} $</td>
+                      <td>${list.searchResults.dossiers[i].Location}</td>
+                      <td>${list.searchResults.dossiers[i].Attribute01}</td>
+                      <td>${list.searchResults.dossiers[i].Attribute02}</td>
+                  </tr>
+              `;
+              document.querySelector("section#dossier header").innerHTML = `<h3 class="text-success">Dossiers Found!</h3>`;
+              document.querySelector("section#dossier").classList.remove("d-none");
+              document.querySelector("section#dossier table").classList.remove("d-none");
+              document.querySelector("section#dossier table tbody").innerHTML = options;
+          }
+      }
+      if(options === ""){
+        dossiers.querySelector("section#dossier header").innerHTML = `<h3 class="text-secondary">No Dossiers found for <em>"${element.value}"</em> !</h3>`;
+        dossiers.querySelector("section#dossier").classList.remove("d-none");
+          document.querySelector("section#dossier table").classList.add("d-none");
+      }
+      form.innerHTML = str;
  }
 
 /**
@@ -117,8 +173,12 @@ function compare(){
             // what to do if you search for a dossier
             var options = "";
             for(var i in list.dossiers){
-                console.log(list.dossiers[i].Number.indexOf(element.value));
                 if(list.dossiers[i].Number.indexOf(element.value) !== -1){
+                    var matches = list.dossiers.filter(dossier => {
+                        const regex = new RegExp(`${element.value}`, "gi");
+                        return dossier.Number.match(regex);
+                    });
+                    pushTheDossierSearchResults(matches);
                     options += `
                         <tr onclick="javascript:window.location = 'dossier.html?id=${i}'">
                             <th scope="row">${list.dossiers[i].Number}</th>
@@ -147,7 +207,12 @@ function compare(){
             // what to do if you search for a contract
             var options = "";
             for(var i in list.contracts){
+                var matches = list.contracts.filter(contract => {
+                    const regex = new RegExp(`${element.value}`, "gi");
+                    return contract.Number.match(regex);
+                });
                 if(list.contracts[i].Number.indexOf(element.value) !== -1){
+                    pushTheContractSearchResults(matches);
                     options += `
                         <tr onclick="javascript:window.location = 'contract.html?id=${i}'">
                             <th scope="row">${list.contracts[i].Number}</th>
@@ -224,7 +289,7 @@ function inputAction(input){
     if(input.name === "Dossier"){
         // if you search for a dossier...
         var matches = list.dossiers.filter(dossier => {
-            const regex = new RegExp(`^${inputText}`, "gi");
+            const regex = new RegExp(`${inputText}`, "gi");
             return dossier.Number.match(regex);
         });
         // hide the suggestions list if the search input is empty
@@ -235,7 +300,7 @@ function inputAction(input){
     }else if(input.name === "Contract"){
         // if you search for a contract...
         var matches = list.contracts.filter(contract => {
-            const regex = new RegExp(`^${inputText}`, "gi");
+            const regex = new RegExp(`${inputText}`, "gi");
             return contract.Number.match(regex);
         });
         // hide the suggestions list if the search input is empty
