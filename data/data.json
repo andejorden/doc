@@ -1,0 +1,157 @@
+{
+  "dossiers" : [{
+    "Attribute01" : "Attribute 01 data...",
+    "Attribute02" : "Attribute 02 data...",
+    "Broker" : "The Broker's Name",
+    "Client" : "Enel",
+    "Date" : "12/04/2019",
+    "Location" : "Bucharest",
+    "Number" : "1",
+    "Requester" : "The Requester Name",
+    "Value" : 19844.5
+  },
+  {
+    "Attribute01" : "Attribute 01 data...",
+    "Attribute02" : "Attribute 02 data...",
+    "Broker" : "The Broker's Name",
+    "Client" : "RDS&RCS",
+    "Date" : "05/06/2018",
+    "Location" : "London",
+    "Number" : "2",
+    "Requester" : "The Requester Name",
+    "Value" : 158.56
+  },
+  {
+    "Attribute01" : "Attribute 01 data...",
+    "Attribute02" : "Attribute 02 data...",
+    "Broker" : "The Broker's Name",
+    "Client" : "Aqua Carpatica",
+    "Date" : "07/11/2020",
+    "Location" : "Berlin",
+    "Number" : "3",
+    "Requester" : "The Requester Name",
+    "Value" : 1457
+  },
+  {
+    "Attribute01" : "Attribute 01 data...",
+    "Attribute02" : "Attribute 02 data...",
+    "Broker" : "The Broker's Name",
+    "Client" : "DIRAC",
+    "Date" : "06/12/2019",
+    "Location" : "Paris",
+    "Number" : "4",
+    "Requester" : "The Requester Name",
+    "Value" : 1718
+  },
+  {
+    "Attribute01" : "Attribute 01 data...",
+    "Attribute02" : "Attribute 02 data...",
+    "Broker" : "The Broker's Name",
+    "Client" : "Geobar",
+    "Date" : "20/10/2020",
+    "Location" : "Bucharest",
+    "Number" : "13",
+    "Requester" : "The Requester Name",
+    "Value" : 148
+  },
+  {
+    "Attribute01" : "Attribute 01 data...",
+    "Attribute02" : "Attribute 02 data...",
+    "Broker" : "The Broker's Name",
+    "Client" : "outCrop Hub",
+    "Date" : "12/7/2019",
+    "Location" : "Bucharest",
+    "Number" : "12",
+    "Requester" : "The Requester Name",
+    "Value" : 1468
+  },
+  {
+    "Attribute01" : "Attribute 01 data...",
+    "Attribute02" : "Attribute 02 data...",
+    "Broker" : "The Broker's Name",
+    "Client" : "ICS Business International",
+    "Date" : "15/2/2019",
+    "Location" : "Bucharest",
+    "Number" : "28",
+    "Requester" : "The Requester Name",
+    "Value" : 1458
+  }
+ ],
+ "contracts" : [{
+    "Attribute01" : "Contract attribute 01...",
+    "Attribute02" : "Contract attribute 02...",
+    "Broker" : "The Broker's Name",
+    "Client" : "Enel",
+    "Date" : "18/03/2019",
+    "Location" : "Bucharest",
+    "Number" : "134",
+    "Requester" : "The Requester Name",
+    "Value" : 194.5
+  },
+  {
+    "Attribute01" : "Contract attribute 01...",
+    "Attribute02" : "Contract attribute 02...",
+    "Broker" : "The Broker's Name",
+    "Client" : "RDS&RCS",
+    "Date" : "10/12/2018",
+    "Location" : "London",
+    "Number" : "28",
+    "Requester" : "The Requester Name",
+    "Value" : 132
+  },
+  {
+    "Attribute01" : "Contract attribute 01...",
+    "Attribute02" : "Contract attribute 02 data...",
+    "Broker" : "The Broker's Name",
+    "Client" : "Aqua Carpatica",
+    "Date" : "23/03/2020",
+    "Location" : "Berlin",
+    "Number" : "3",
+    "Requester" : "The Requester Name",
+    "Value" : 147
+  },
+  {
+    "Attribute01" : "Contract attribute 01...",
+    "Attribute02" : "Contract attribute 02...",
+    "Broker" : "The Broker's Name",
+    "Client" : "DIRAC",
+    "Date" : "02/08/2019",
+    "Location" : "Paris",
+    "Number" : "4",
+    "Requester" : "The Requester Name",
+    "Value" : 178
+  },
+  {
+    "Attribute01" : "Contract attribute 01...",
+    "Attribute02" : "Contract attribute 02...",
+    "Broker" : "The Broker's Name",
+    "Client" : "Geobar",
+    "Date" : "20/10/2020",
+    "Location" : "Bucharest",
+    "Number" : "13",
+    "Requester" : "The Requester Name",
+    "Value" : 148
+  },
+  {
+    "Attribute01" : "Contract attribute 01...",
+    "Attribute02" : "Contract attribute 02...",
+    "Broker" : "The Broker's Name",
+    "Client" : "outCrop Hub",
+    "Date" : "12/7/2019",
+    "Location" : "Bucharest",
+    "Number" : "12",
+    "Requester" : "The Requester Name",
+    "Value" : 1468
+  },
+  {
+    "Attribute01" : "Contract attribute 01...",
+    "Attribute02" : "Contract attribute 02...",
+    "Broker" : "The Broker's Name",
+    "Client" : "ICS Business International",
+    "Date" : "15/2/2019",
+    "Location" : "Bucharest",
+    "Number" : "2891",
+    "Requester" : "The Requester Name",
+    "Value" : 1458
+  }]
+}

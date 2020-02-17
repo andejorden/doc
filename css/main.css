@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+/* Do The Text Responsive! */
+
+html {
+    font-size: 14px;
+  }
+  @media (min-width: 768px) {
+    html {
+      font-size: 14px;
+    }
+  }
+  @media (min-width: 992px) {
+    html {
+      font-size: 14px;
+    }
+
+    form#mainForm{
+      max-width: 50%;
+    }
+  }
+  
+  h1, .h1 {
+    font-size: 2.48832rem;
+  }
+  
+  h2, .h2 {
+    font-size: 2.0736rem;
+  }
+  
+  h3, .h3 {
+    font-size: 1.728rem;
+  }
+  
+  h4, .h4 {
+    font-size: 1.44rem;
+  }
+  
+  h5, .h5 {
+    font-size: 1.2rem;
+  }
+  
+  h6, .h6 {
+    font-size: 1rem;
+  }
+  
+  .display-4 {
+    font-size: 3.48832rem;
+  }
+  
+  .display-3 {
+    font-size: 4.185984rem;
+  }
+  
+  .display-2 {
+    font-size: 5.0231808rem;
+  }
+  
+  .display-1 {
+    font-size: 6.02781696rem;
+  }
+  
+  @media (min-width: 768px) {
+    h1, .h1 {
+      font-size: 2.48832rem;
+    }
+  
+    h2, .h2 {
+      font-size: 2.0736rem;
+    }
+  
+    h3, .h3 {
+      font-size: 1.728rem;
+    }
+  
+    h4, .h4 {
+      font-size: 1.44rem;
+    }
+  
+    h5, .h5 {
+      font-size: 1.2rem;
+    }
+  
+    h6, .h6 {
+      font-size: 1rem;
+    }
+  }
+
+/* End */
+
+body{
+  font: normal 14px/120% "Montserrat", sans-serif;
+  color: #343a40;
+}
+
+table,
+thead,
+tr,
+tbody,
+th,
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#matchList{
+  z-index: 3;
+}
+
+section{
+  padding: 10px;
+}
+
+section table tbody{
+  cursor: pointer;
+}
+
+footer{
+    color: gray;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}

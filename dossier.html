@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dossier Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js"></script>
+</head>
+<body onload="ajaxToJsonData();">
+    <main>
+        <nav class="text-right text-primary p-2">
+            <ul class="list-inline m-md-3">
+                <li class="list-inline-item"><i class="fas fa-user"></i></li>
+                <li class="list-inline-item"><i class="fas fa-calendar-alt"></i></li>
+                <li class="list-inline-item"><i class="fas fa-star"></i></li>
+            </ul>
+        </nav>
+        <article class="container">
+            <header>
+                <h1 class="text-primary"><strong>Documenta</strong></h1>
+                <h2 class="text-uppercase"><strong>Dossier Page</strong></h2>
+            </header>
+            <h3><strong>Search for documents!</strong></h3>
+            <form class="mx-auto p-2" autocomplete="off">
+                <div class="row">
+                    <div class="form-group has-search col">
+                        <i class="fa fa-search form-control-feedback"></i>
+                        <input type="search" name="Dossier" placeholder="Dossier Number" class="form-control rounded-pill shadow-sm">
+                    </div>
+                    <div class="form-group has-search col">
+                        <i class="fa fa-search form-control-feedback"></i>
+                        <input type="search" name="Contract" placeholder="Contract Number" class="form-control rounded-pill shadow-sm">
+                    </div>
+                </div>
+            </form>
+            <h2>Dossier Name</h2>
+            <form id="editForm" class="mx-auto p-2" autocomplete="off">
+                <div class="row">
+                </div>
+            </form>
+        </article>
+        <footer class="mb-0 text-center">
+            <h3><small>Search Google Style</small></h3>
+            <p><small><strong>Documenta</strong> - 2020 <i class="far fa-copyright"></i></small></p>
+        </footer>
+    </main>
+</body>
+</html>
