@@ -331,6 +331,7 @@ function loopTheSearchInput(){
  */
 
  function draw(){
+     console.log(window.location.pathname);
      if(window.location.href.indexOf("index.html") > -1 || window.location.pathname === "/"){
          loopTheSearchInput();
          hideMatchList();
