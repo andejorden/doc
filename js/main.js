@@ -1,14 +1,6 @@
 var list = [];
 
 /**
- * Compare Arrays
- */
-
-function compare(){
-    // dsag
- }
-
-/**
  * Create jSON Data from Contract Search Results...
  */
 
@@ -331,12 +323,10 @@ function loopTheSearchInput(){
  */
 
  function draw(){
-     console.log(window.location.pathname);
-     if(window.location.href.indexOf("index.html") > -1 || window.location.pathname === "/doc/"){
-         loopTheSearchInput();
-         hideMatchList();
-         compare();
-     }else if(window.location.href.indexOf("dossier.html") > -1){
+     console.log(window.location);
+     loopTheSearchInput();
+     hideMatchList();
+     if(window.location.href.indexOf("dossier.html") > -1){
          drawDossierPage();
      }else if(window.location.href.indexOf("contract.html") > -1){
         drawContractPage();

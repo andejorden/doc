@@ -25,7 +25,7 @@
                 <h2 class="text-uppercase"><strong>Contract Page</strong></h2>
             </header>
             <h3><strong>Search for documents!</strong></h3>
-            <form class="container mx-auto p-2" autocomplete="off">
+            <form id="mainForm" onsubmit="postTheSearchResults(this, event)" class="container-fluid mx-auto p-2" autocomplete="off">
                 <div class="row">
                     <div class="form-group has-search col-sm-12 col-md-6 col-lg-6">
                         <i class="fa fa-search form-control-feedback"></i>
@@ -36,6 +36,8 @@
                         <input type="search" name="Contract" placeholder="Contract Number" class="form-control rounded-pill shadow-sm">
                     </div>
                 </div>
+                <div id="matchList" class="list-group text-left position-absolute z-index-3"></div>
+                <input type="submit" value="submit" class="d-none">
             </form>
             <h2 class="text-primary">Contract Name</h2>
             <form id="editForm" class="mx-auto p-2" autocomplete="off">
