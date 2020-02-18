@@ -1,5 +1,4 @@
 var list = [];
-var dossierPage = "dossier.html";
 
 /**
  * Compare Arrays
@@ -332,7 +331,7 @@ function loopTheSearchInput(){
  */
 
  function draw(){
-     if(window.location.href.indexOf("index.html") > -1){
+     if(window.location.href.indexOf("index.html") > -1 || window.location === window.location.hostname){
          loopTheSearchInput();
          hideMatchList();
          compare();
