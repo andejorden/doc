@@ -93,6 +93,10 @@ body{
   color: #343a40;
 }
 
+nav{
+  background-color: dodgerblue;
+}
+
 table,
 thead,
 tr,

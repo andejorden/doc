@@ -12,7 +12,7 @@
 </head>
 <body onload="ajaxToJsonData();">
     <main>
-        <nav class="text-right text-primary p-2">
+        <nav class="text-right text-light p-2">
             <ul class="list-inline m-md-3">
                 <li class="list-inline-item"><i class="fas fa-user"></i></li>
                 <li class="list-inline-item"><i class="fas fa-calendar-alt"></i></li>
@@ -20,11 +20,11 @@
             </ul>
         </nav>
         <article class="container">
-            <header>
-                <h1 class="text-primary"><a href="index.html"><strong>Documenta</strong></a></h1>
+            <header class="text-center">
+                <h1 class="text-primary p-3"><a href="index.html"><strong>Documenta</strong></a></h1>
                 <h2 class="text-uppercase"><strong>Dossier Page</strong></h2>
+                <h3><strong>Search for documents!</strong></h3>
             </header>
-            <h3><strong>Search for documents!</strong></h3>
             <form id="mainForm" onsubmit="postTheSearchResults(this, event)" class="form mx-auto p-2" autocomplete="off">
                 <div class="row">
                     <div class="form-group has-search col-sm-12 col-md-6 col-lg-6">
@@ -48,7 +48,7 @@
                 <header>
                     <h3>Dossier List</h3>
                 </header>
-                <table class="table table-hover table-sm table-responsive-sm">
+                <table class="table table-hover table-responsive-sm">
                     <thead class="thead-dark">
                         <tr>
                             <th>Nr.</th>
@@ -70,7 +70,7 @@
                 <header>
                     <h3>Contract List</h3>
                 </header>
-                <table class="table table-hover table-sm table-responsive-sm">
+                <table class="table table-hover table-responsive-sm">
                     <thead class="thead-dark">
                         <tr>
                             <th>Number</th>

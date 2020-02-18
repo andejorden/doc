@@ -28,31 +28,31 @@ var list = [];
     var i = window.location.search.substring(4);
     var str = `
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline">Contract Number: <input type="text" name="Number" value="${list.contracts[i].Number}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline"><strong>Contract Number:</strong> <input type="text" name="Number" value="${list.contracts[i].Number}" class="form-control shadow-sm" readonly></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline">Contract Date: <input type="text" name="Number" value="${list.contracts[i].Date}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline"><strong>Contract Date:</strong> <input type="text" name="Number" value="${list.contracts[i].Date}" class="form-control shadow-sm" readonly></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline">Contract Requester: <input type="text" name="Number" value="${list.contracts[i].Requester}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline"><strong>Contract Requester:</strong> <input type="text" name="Number" value="${list.contracts[i].Requester}" class="form-control shadow-sm" readonly></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline">Contract Broker: <input type="text" name="Number" value="${list.contracts[i].Broker}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline"><strong>Contract Broker:</strong> <input type="text" name="Number" value="${list.contracts[i].Broker}" class="form-control shadow-sm" readonly></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline">Contract Customer: <input type="text" name="Number" value="${list.contracts[i].Client}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline"><strong>Contract Customer:</strong> <input type="text" name="Number" value="${list.contracts[i].Client}" class="form-control shadow-sm" readonly></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline">Contract Value: <input type="text" name="Number" value="${list.contracts[i].Value}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline"><strong>Contract Value:</strong> <input type="text" name="Number" value="${list.contracts[i].Value}" class="form-control shadow-sm" readonly></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline">Contract Location: <input type="text" name="Number" value="${list.contracts[i].Location}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline"><strong>Contract Location:</strong> <input type="text" name="Number" value="${list.contracts[i].Location}" class="form-control shadow-sm" readonly></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline">Contract Attribute 01: <input type="text" name="Number" value="${list.contracts[i].Attribute01}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline"><strong>Contract Attribute 01:</strong> <input type="text" name="Number" value="${list.contracts[i].Attribute01}" class="form-control shadow-sm" readonly></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline">Contract Attribute 02: <input type="text" name="Number" value="${list.contracts[i].Attribute02}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline"><strong>Contract Attribute 02:</strong> <input type="text" name="Number" value="${list.contracts[i].Attribute02}" class="form-control shadow-sm" readonly></label>
        </div>
      `;
 
@@ -323,7 +323,6 @@ function loopTheSearchInput(){
  */
 
  function draw(){
-     console.log(window.location);
      loopTheSearchInput();
      hideMatchList();
      if(window.location.href.indexOf("dossier.html") > -1){
