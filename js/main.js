@@ -331,7 +331,7 @@ function loopTheSearchInput(){
  */
 
  function draw(){
-     if(window.location.href.indexOf("index.html") > -1 || window.location === window.location.origin){
+     if(window.location.href.indexOf("index.html") > -1 || window.location.pathname === "/"){
          loopTheSearchInput();
          hideMatchList();
          compare();
