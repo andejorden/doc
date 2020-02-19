@@ -1,6 +1,34 @@
 var list = [];
 
 /**
+ * Let's edit the data...
+ */
+
+ function editTheData(form, event){
+     event.preventDefault();
+ }
+
+ function inputOnClick(input){
+     input.removeAttribute("readonly");
+ }
+
+ function inputOnBlur(input){
+     input.readOnly = true;
+ }
+
+/**
+ * What if User it's logd in...
+ */
+
+//  function loggedIn(){
+//     if (logged_in) {
+//         alert("My user is logged in!");
+//     }else{
+//         alert("User not logged in!");
+//     }
+//  }
+
+/**
  * Create jSON Data from Contract Search Results...
  */
 
@@ -28,47 +56,51 @@ var list = [];
     var i = window.location.search.substring(4);
     var str = `
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline"><strong>Contract Number:</strong> <input type="text" name="Number" value="${list.contracts[i].Number}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline">Contract Number: <input type="text" name="Number" value="${list.contracts[i].Number}" class="form-control shadow-sm" readonly onfocus="inputOnClick(this);" onblur="inputOnBlur(this);"></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline"><strong>Contract Date:</strong> <input type="text" name="Number" value="${list.contracts[i].Date}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline">Contract Date: <input type="text" name="Number" value="${list.contracts[i].Date}" class="form-control shadow-sm" readonly></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline"><strong>Contract Requester:</strong> <input type="text" name="Number" value="${list.contracts[i].Requester}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline">Contract Requester: <input type="text" name="Number" value="${list.contracts[i].Requester}" class="form-control shadow-sm" readonly></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline"><strong>Contract Broker:</strong> <input type="text" name="Number" value="${list.contracts[i].Broker}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline">Contract Broker: <input type="text" name="Number" value="${list.contracts[i].Broker}" class="form-control shadow-sm" readonly></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline"><strong>Contract Customer:</strong> <input type="text" name="Number" value="${list.contracts[i].Client}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline">Contract Customer: <input type="text" name="Number" value="${list.contracts[i].Client}" class="form-control shadow-sm" readonly></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline"><strong>Contract Value:</strong> <input type="text" name="Number" value="${list.contracts[i].Value}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline">Contract Value: <input type="text" name="Number" value="${list.contracts[i].Value}" class="form-control shadow-sm" readonly></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline"><strong>Contract Location:</strong> <input type="text" name="Number" value="${list.contracts[i].Location}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline">Contract Location: <input type="text" name="Number" value="${list.contracts[i].Location}" class="form-control shadow-sm" readonly></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline"><strong>Contract Attribute 01:</strong> <input type="text" name="Number" value="${list.contracts[i].Attribute01}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline">Contract Attribute 01: <input type="text" name="Number" value="${list.contracts[i].Attribute01}" class="form-control shadow-sm" readonly></label>
        </div>
        <div class="form-group col-sm-12 col-md-4 col-lg-6">
-           <label class="text-success d-inline"><strong>Contract Attribute 02:</strong> <input type="text" name="Number" value="${list.contracts[i].Attribute02}" class="form-control shadow-sm" readonly></label>
+           <label class="text-success d-inline">Contract Attribute 02: <input type="text" name="Number" value="${list.contracts[i].Attribute02}" class="form-control shadow-sm" readonly></label>
+       </div>
+       <div class="form-group col-sm-12 col-md-4 col-lg-6">
+       <br>
+            <button type="submit" value="submit" class="form-control btn btn-primary"><strong>Save!</strong></button>
        </div>
      `;
 
-    for(var i in list.searchResults.contracts){
-        if(list.searchResults.contracts[i] !== -1){
+    for(var i in list.contracts){
+        if(list.contracts[i] !== -1){
             options += `
-                <tr>
-                    <th scope="row">${list.searchResults.contracts[i].Number}</th>
-                    <td>${list.searchResults.contracts[i].Date}</td>
-                    <td>${list.searchResults.contracts[i].Requester}</td>
-                    <td>${list.searchResults.contracts[i].Broker}</td>
-                    <td>${list.searchResults.contracts[i].Client}</td>
-                    <td>${list.searchResults.contracts[i].Value} $</td>
-                    <td>${list.searchResults.contracts[i].Location}</td>
-                    <td>${list.searchResults.contracts[i].Attribute01}</td>
-                    <td>${list.searchResults.contracts[i].Attribute02}</td>
+                <tr onclick="javascript:window.location = 'contract.html?id=${i}'">
+                    <th scope="row">${list.contracts[i].Number}</th>
+                    <td>${list.contracts[i].Date}</td>
+                    <td>${list.contracts[i].Requester}</td>
+                    <td>${list.contracts[i].Broker}</td>
+                    <td>${list.contracts[i].Client}</td>
+                    <td>${list.contracts[i].Value} $</td>
+                    <td>${list.contracts[i].Location}</td>
+                    <td>${list.contracts[i].Attribute01}</td>
+                    <td>${list.contracts[i].Attribute02}</td>
                 </tr>
             `;
             document.querySelector("section#dossier header").innerHTML = `<h3 class="text-success">Contracts Found!</h3>`;
@@ -121,21 +153,25 @@ var list = [];
         <div class="form-group col-sm-12 col-md-4 col-lg-6">
             <label class="text-success d-inline">Dossier Attribute 02: <input type="text" name="Number" value="${list.dossiers[i].Attribute02}" class="form-control shadow-sm" readonly></label>
         </div>
+        <div class="form-group col-sm-12 col-md-4 col-lg-6">
+        <br>
+             <button type="submit" value="submit" class="form-control btn btn-primary"><strong>Save!</strong></button>
+        </div>
       `;
 
-      for(var i in list.searchResults.dossiers){
-          if(list.searchResults.dossiers[i] !== -1){
+      for(var i in list.dossiers){
+          if(list.dossiers[i] !== -1){
               options += `
-                  <tr>
-                      <th scope="row">${list.searchResults.dossiers[i].Number}</th>
-                      <td>${list.searchResults.dossiers[i].Date}</td>
-                      <td>${list.searchResults.dossiers[i].Requester}</td>
-                      <td>${list.searchResults.dossiers[i].Broker}</td>
-                      <td>${list.searchResults.dossiers[i].Client}</td>
-                      <td>${list.searchResults.dossiers[i].Value} $</td>
-                      <td>${list.searchResults.dossiers[i].Location}</td>
-                      <td>${list.searchResults.dossiers[i].Attribute01}</td>
-                      <td>${list.searchResults.dossiers[i].Attribute02}</td>
+                  <tr onclick="javascript:window.location = 'dossier.html?id=${i}'">
+                      <th scope="row">${list.dossiers[i].Number}</th>
+                      <td>${list.dossiers[i].Date}</td>
+                      <td>${list.dossiers[i].Requester}</td>
+                      <td>${list.dossiers[i].Broker}</td>
+                      <td>${list.dossiers[i].Client}</td>
+                      <td>${list.dossiers[i].Value} $</td>
+                      <td>${list.dossiers[i].Location}</td>
+                      <td>${list.dossiers[i].Attribute01}</td>
+                      <td>${list.dossiers[i].Attribute02}</td>
                   </tr>
               `;
               document.querySelector("section#dossier header").innerHTML = `<h3 class="text-success">Dossiers Found!</h3>`;
@@ -152,6 +188,14 @@ var list = [];
       form.innerHTML = str;
  }
 
+ function drawSearchPage(){
+    document.querySelector("nav").classList.remove("d-none");
+    document.querySelectorAll("div.has-search").forEach(div => {
+        div.classList.add("col-sm-12", "col-md-6", "col-lg-6");
+    });
+    document.querySelector("form#mainForm").classList.add("row");
+ }
+
 /**
  * What to do if you Submit The Form...
  */
@@ -164,33 +208,33 @@ var list = [];
             // what to do if you search for a dossier
             var options = "";
             for(var i in list.dossiers){
+                var matches = list.dossiers.filter(dossier => {
+                    const regex = new RegExp(`${element.value}`, "gi");
+                    return dossier.Number.match(regex);
+                });
                 if(list.dossiers[i].Number.indexOf(element.value) !== -1){
-                    var matches = list.dossiers.filter(dossier => {
-                        const regex = new RegExp(`${element.value}`, "gi");
-                        return dossier.Number.match(regex);
-                    });
-                    pushTheDossierSearchResults(matches);
+                    pushTheContractSearchResults(matches);
                     options += `
                         <tr onclick="javascript:window.location = 'dossier.html?id=${i}'">
-                            <th scope="row">${list.dossiers[i].Number}</th>
-                            <td>${list.dossiers[i].Date}</td>
-                            <td>${list.dossiers[i].Requester}</td>
-                            <td>${list.dossiers[i].Broker}</td>
-                            <td>${list.dossiers[i].Client}</td>
-                            <td>${list.dossiers[i].Value} $</td>
-                            <td>${list.dossiers[i].Location}</td>
-                            <td>${list.dossiers[i].Attribute01}</td>
-                            <td>${list.dossiers[i].Attribute02}</td>
+                            <th scope="row" class="align-middle">${list.dossiers[i].Number}</th>
+                            <td class="align-middle">${list.dossiers[i].Date}</td>
+                            <td class="align-middle">${list.dossiers[i].Requester}</td>
+                            <td class="align-middle">${list.dossiers[i].Broker}</td>
+                            <td class="align-middle">${list.dossiers[i].Client}</td>
+                            <td class="align-middle">${list.dossiers[i].Value} $</td>
+                            <td class="align-middle">${list.dossiers[i].Location}</td>
+                            <td class="align-middle">${list.dossiers[i].Attribute01}</td>
+                            <td class="align-middle">${list.dossiers[i].Attribute02}</td>
                         </tr>
                     `;
-                    document.querySelector("section#dossier header").innerHTML = `<h3 class="text-success">Dossiers Found!</h3>`;
+                    document.querySelector("section#dossier header").innerHTML = `<h3 class="text-success">Dossier Found!</h3>`;
                     document.querySelector("section#dossier").classList.remove("d-none");
                     document.querySelector("section#dossier table").classList.remove("d-none");
                     document.querySelector("section#dossier table tbody").innerHTML = options;
                 }
             }
-            if(options === ""){
-                document.querySelector("section#dossier header").innerHTML = `<h3 class="text-secondary">No Dossier found for <em>"${element.value}"</em> !</h3>`;
+            if(options === "" || element.value === ""){
+                document.querySelector("section#dossier header").innerHTML = `<h3 class="text-danger">No Dossier found for <em>"${element.value}"</em> !</h3>`;
                 document.querySelector("section#dossier").classList.remove("d-none");
                 document.querySelector("section#dossier table").classList.add("d-none");
             }
@@ -223,8 +267,8 @@ var list = [];
                     document.querySelector("section#contract table tbody").innerHTML = options;
                 }
             }
-            if(options === ""){
-                document.querySelector("section#contract header").innerHTML = `<h3 class="text-secondary">No Contract found for <em>"${element.value}"</em> !</h3>`;
+            if(options === "" || element.value === ""){
+                document.querySelector("section#contract header").innerHTML = `<h3 class="text-danger">No Contract found for <em>"${element.value}"</em> !</h3>`;
                 document.querySelector("section#contract").classList.remove("d-none");
                 document.querySelector("section#contract table").classList.add("d-none");
             }
@@ -261,12 +305,12 @@ function selected(index, name){
  */
 
 function outputHTML(matches, searchName){
-    var matchList = document.querySelector("#matchList");
+    var matchContainer = document.querySelector("#matchContainer");
     if(matches.length > -1){
         const options = matches.map(match => `
             <a href="javascript:selected(${match.Number}, '${searchName}');" class="list-group-item list-group-item-action"><strong>${match.Number}</strong><small> - ${match.Client}</small></a>
         `).join("");
-        document.querySelector(`input[name='${searchName}']`).insertAdjacentElement("afterend", matchList);
+        document.querySelector(`input[name='${searchName}']`).insertAdjacentElement("afterend", matchContainer);
         document.querySelector("#matchList").innerHTML = options;
     }
 }

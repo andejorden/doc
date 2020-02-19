@@ -4,45 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dossier Page</title>
+    <title>Contract Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js"></script>
 </head>
 <body onload="ajaxToJsonData();">
     <main>
-        <nav class="text-right text-light p-2">
-            <ul class="list-inline m-md-3">
-                <li class="list-inline-item"><i class="fas fa-user"></i></li>
-                <li class="list-inline-item"><i class="fas fa-calendar-alt"></i></li>
-                <li class="list-inline-item"><i class="fas fa-star"></i></li>
+        <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+            <a class="navbar-brand" href="index.html"><strong>Documenta</strong></a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="fas fa-user"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="fas fa-calendar-alt"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="fas fa-star"></i></a>
+                </li>
             </ul>
         </nav>
         <article class="container">
-            <header class="text-center">
-                <h1 class="text-primary p-3"><a href="index.html"><strong>Documenta</strong></a></h1>
+            <header class="py-5">
                 <h2 class="text-uppercase"><strong>Contract Page</strong></h2>
                 <h3><strong>Search for documents!</strong></h3>
             </header>
-            <form id="mainForm" onsubmit="postTheSearchResults(this, event)" class="container-fluid mx-auto p-2" autocomplete="off">
-                <div class="row">
-                    <div class="form-group has-search col-sm-12 col-md-6 col-lg-6">
-                        <i class="fa fa-search form-control-feedback"></i>
-                        <input type="search" name="Dossier" placeholder="Dossier Number" class="form-control rounded-pill shadow-sm">
+            <form id="mainForm" onsubmit="postTheSearchResults(this, event)" class="form-inline" autocomplete="off">
+                <div class="input-group mb-3 col-sm-12 col-md-6 col-lg-6">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text text-muted"><i class="fas fa-search"></i></span>
                     </div>
-                    <div class="form-group has-search col-sm-12 col-md-6 col-lg-6">
-                        <i class="fa fa-search form-control-feedback"></i>
-                        <input type="search" name="Contract" placeholder="Contract Number" class="form-control rounded-pill shadow-sm">
+                    <input type="search" name="Dossier" placeholder="Dossier Number" class="form-control">
+                    <div id="matchContainer" class="position-relative w-100">
+                        <div id="matchList" class="list-group text-left position-absolute w-100"></div>
                     </div>
                 </div>
-                <div id="matchList" class="list-group text-left position-absolute z-index-3"></div>
+                <div class="input-group mb-3 col-sm-12 col-md-6 col-lg-6">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text text-muted"><i class="fas fa-search"></i></span>
+                    </div>
+                    <input type="search" name="Contract" placeholder="Contract Number" class="form-control">
+                </div>
                 <input type="submit" value="submit" class="d-none">
             </form>
+            <form id="editForm" class="md-form py-3" autocomplete="off">
             <h2 class="text-primary">Contract Name</h2>
-            <form id="editForm" class="mx-auto p-2" autocomplete="off">
-                <div class="row">
-                </div>
+            <div class="row"></div>
             </form>
             <section id="dossier" class="d-none">
                 <header>
@@ -88,7 +98,7 @@
                 </table>
             </section>
         </article>
-        <footer class="mb-0 text-center">
+        <footer class="my-5 text-center text-muted">
             <h3><small>Search Google Style</small></h3>
             <p><small><strong>Documenta</strong> - 2020 <i class="far fa-copyright"></i></small></p>
         </footer>

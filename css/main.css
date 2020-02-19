@@ -14,10 +14,6 @@ html {
     html {
       font-size: 14px;
     }
-
-    form#mainForm{
-      max-width: 50%;
-    }
   }
   
   h1, .h1 {
@@ -88,39 +84,25 @@ html {
 
 /* End */
 
+html, body {
+  height: 100%;
+}
+
 body{
   font: normal 14px/120% "Montserrat", sans-serif;
   color: #343a40;
 }
 
-nav{
-  background-color: dodgerblue;
-}
-
-table,
-thead,
-tr,
-tbody,
-th,
-td{
-  text-align: center;
-  vertical-align: middle;
+nav img{
+  height: 20px;
 }
 
 #matchList{
   z-index: 3;
 }
 
-section{
-  padding: 10px;
-}
-
 section table tbody{
   cursor: pointer;
-}
-
-footer{
-    color: gray;
 }
 
 /* Bootstrap 4 text input with search icon */

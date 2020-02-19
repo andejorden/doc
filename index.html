@@ -7,12 +7,13 @@
     <title>Search Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js"></script>
 </head>
-<body onload="ajaxToJsonData();">
-    <main>
-        <nav class="text-right text-light p-2">
+<body onload="ajaxToJsonData();" class="row h-100">
+    <main class="col-sm-12 my-auto">
+        <nav class="text-right text-light p-2 d-none">
             <ul class="list-inline m-md-3">
                 <li class="list-inline-item"><i class="fas fa-user"></i></li>
                 <li class="list-inline-item"><i class="fas fa-calendar-alt"></i></li>
@@ -21,23 +22,32 @@
         </nav>
         <article class="container text-center">
             <header>
-                <h1 class="text-primary p-3"><a href="index.html"><strong>Documenta</strong></a></h1>
+                <h1 class="text-primary"><a href="index.html"><strong>Header One Theme Style</strong></a></h1>
                 <h2 class="text-uppercase"><strong>Search Google Style</strong></h2>
-            </header>
-            <form id="mainForm" onsubmit="postTheSearchResults(this, event)" class="mx-auto p-2" autocomplete="off">
                 <h3><strong>Search for Documents</strong></h3>
-                <div class="form-group has-search">
-                    <i class="fa fa-search form-control-feedback"></i>
-                    <input type="search" name="Dossier" placeholder="Dossier Number" class="form-control rounded-pill shadow-sm">
-                    <div id="matchList" class="list-group text-left position-absolute z-index-3"></div>
+            </header>
+            <form id="mainForm" onsubmit="postTheSearchResults(this, event)" autocomplete="off">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text text-muted"><i class="fas fa-search"></i></span>
+                    </div>
+                    <input type="search" name="Dossier" placeholder="Dossier Number" class="form-control">
+                    <div id="matchContainer" class="position-relative w-100">
+                        <div id="matchList" class="list-group text-left position-absolute w-100"></div>
+                    </div>
                 </div>
-                <div class="form-group has-search">
-                    <i class="fa fa-search form-control-feedback"></i>
-                    <input type="search" name="Contract" placeholder="Contract Number" class="form-control rounded-pill shadow-sm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text text-muted"><i class="fas fa-search"></i></span>
+                    </div>
+                    <input type="search" name="Contract" placeholder="Contract Number" class="form-control">
+                    <div id="matchContainer" class="position-relative w-100">
+                        <div id="matchList" class="list-group text-left position-absolute w-100"></div>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> <strong>Search!</strong></button>
             </form>
-            <section id="dossier" class="d-none">
+            <section id="dossier" class="my-3 d-none">
                 <header>
                     <h3>Dossier List</h3>
                 </header>
@@ -81,10 +91,10 @@
                 </table>
             </section>
         </article>
+        <footer class="my-5 text-center text-muted">
+            <h3><small>Search Google Style</small></h3>
+            <p><small><strong>Documenta</strong> - 2020 <i class="far fa-copyright"></i></small></p>
+        </footer>
     </main>
-    <footer class="mb-0 text-center">
-        <h3><small>Search Google Style</small></h3>
-        <p><small><strong>Documenta</strong> - 2020 <i class="far fa-copyright"></i></small></p>
-    </footer>
 </body>
 </html>
